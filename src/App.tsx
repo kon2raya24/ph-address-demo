@@ -3,7 +3,7 @@ import { PhAddressPicker, type AddressValue } from '@ph-dev-utils/address-react'
 import '@ph-dev-utils/address-react/theme.css';
 
 function oneLine(v: AddressValue): string {
-  return [v.city?.name, v.province?.name, v.region?.name, v.zip]
+  return [v.barangay?.name, v.city?.name, v.province?.name, v.region?.name, v.zip]
     .filter(Boolean)
     .join(', ');
 }
@@ -22,9 +22,9 @@ export function App() {
           Philippine Address Picker
         </h1>
         <p className="mt-2 text-slate-600">
-          A cascading <span className="font-medium">region → province → city/municipality → ZIP</span> selector
-          for React. ZIP autofills. Handles the things PH forms get wrong: NCR has no provinces,
-          independent cities belong to no province, and big cities have many ZIP codes.
+          A cascading <span className="font-medium">region → province → city/municipality → barangay → ZIP</span> selector
+          for React. Barangays lazy-load per city; ZIP autofills. Handles the things PH forms get wrong:
+          NCR has no provinces, independent cities belong to no province, and big cities have many ZIP codes.
         </p>
         <pre className="mt-4 overflow-auto rounded-lg bg-slate-900 px-4 py-3 text-sm text-slate-100 font-mono">
           npm install @ph-dev-utils/address-react
@@ -36,7 +36,7 @@ export function App() {
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
             Try it
           </h2>
-          <PhAddressPicker onChange={setValue} />
+          <PhAddressPicker onChange={setValue} showBarangay />
         </section>
 
         <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">

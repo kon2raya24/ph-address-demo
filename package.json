@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ph-dev-utils/address-react": "^0.2.0",
+    "@ph-dev-utils/address-react": "^0.3.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
